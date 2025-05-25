@@ -1,0 +1,23 @@
+{
+  "name": "prooheckcp-hello-world-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./dist/index.js"
+  },
+  "bin": {
+    "hello-world-ts": "./dist/index.js"
+  },
+  "keywords": [],
+  "author": "prooheckcp <vasco.soares.2001@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "commander": "^14.0.0"
+  }
+}
