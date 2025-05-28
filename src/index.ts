@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 
+import path from "path"
 import { Command } from "commander";
+import {init} from "./Commands/FileCreation"
+
+// loop thru directory
+//path.join(".", "folder")
 
 let print = console.log
 
@@ -25,4 +30,5 @@ program.command("split")
   });
 
 
+init()
 program.parse();
