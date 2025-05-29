@@ -1,34 +1,27 @@
 #!/usr/bin/env node
 
 import path from "path"
-import { Command } from "commander";
-import {init} from "./Commands/FileCreation"
+import { Command } from "commander"
+import fs from "fs"
+import {getNestedFiles} from "./Functions/fileUtil"
 
-// loop thru directory
-//path.join(".", "folder")
+const COMMANDS_DIRECTORY: string = path.join(__dirname, "..", "src", "Commands")
 
-let print = console.log
 
 const program = new Command();
 
 program
   .name("hello-world")
   .description("A simple Hello World CLI tool")
-  .version("0.1.0")
+  .version("0.1.0") // Import from package.json
 
-program.command("split")
-  .description('Split a string into substrings and display as an array')
-  .argument('<string>', 'string to split')
-  .argument('<string>', 'another str')
-  .option('--first', 'display just the first substring')
-  .option('-s, --separator <char>', 'separator character', ',')
-  .action((str, str2, options: {[key: string]: any}) => {
-    print(str, str2)
-    print(options)
+async function init(){
+  let x = await getNestedFiles(COMMANDS_DIRECTORY, "")
 
-    // Get Current directory process.cwd()
-  });
+  console.log(x)
 
 
-init()
-program.parse();
+  program.parse();
+}
+
+init();
