@@ -5,8 +5,7 @@ import { Command } from "commander"
 import fs from "fs"
 import {getNestedFiles} from "./Functions/fileUtil"
 
-const COMMANDS_DIRECTORY: string = path.join(__dirname, "..", "src", "Commands")
-
+const COMMANDS_DIRECTORY: string = path.join(__dirname, "Commands")
 
 const program = new Command();
 
@@ -16,10 +15,10 @@ program
   .version("0.1.0") // Import from package.json
 
 async function init(){
-  let x = await getNestedFiles(COMMANDS_DIRECTORY, "")
-
-  console.log(x)
-
+  for (const filePath of await getNestedFiles(COMMANDS_DIRECTORY)){
+    const module = require(filePath);
+    module.init(program)
+  }
 
   program.parse();
 }
