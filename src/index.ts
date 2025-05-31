@@ -9,10 +9,12 @@ const COMMANDS_DIRECTORY: string = path.join(__dirname, "Commands")
 
 const program = new Command();
 
+let packageJson = require(path.join(__dirname, "..", "package.json"))
+
 program
-  .name("hello-world")
-  .description("A simple Hello World CLI tool")
-  .version("0.1.0") // Import from package.json
+  .name(packageJson.name)
+  .description(packageJson.description)
+  .version(packageJson.version) // Import from package.json
 
 async function init(){
   for (const filePath of await getNestedFiles(COMMANDS_DIRECTORY)){
