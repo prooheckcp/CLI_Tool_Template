@@ -1,0 +1,26 @@
+# Wally
+/Packages
+/DevPackages
+wally.lock
+wally
+wally.exe
+
+# VSCode configuration
+.vscode/
+
+# Project place files
+/*.rbxlx
+/*.rbxl
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
+
+# Sourcemap Luau files
+sourcemap.json 
+
+# Moonwave folder
+node_modules
+
+# MacOS
+.DS_Store
