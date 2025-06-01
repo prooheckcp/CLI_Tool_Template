@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "tabWidth": 4,
   "scripts": {
     "clean": "rimraf dist",
     "build": "tsc",
